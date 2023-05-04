@@ -1,0 +1,4 @@
+---
+# tasks file for ansible_role_mysql
+- name: Include task list in play
+  ansible.builtin.include: install.yml

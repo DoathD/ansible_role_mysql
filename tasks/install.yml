@@ -1,0 +1,35 @@
+---
+
+#- name: "Download package repo and check md5"
+#  ansible.builtin.get_url:
+#    url: "https://dev.mysql.com/get/mysql-apt-config_{{ mysql_version_install }}_all.deb"
+#    dest: "{{ mysql_path_deb }}"
+#    mode: 0744
+#    checksum: "{{ mysql_md5_ckecksum }}"
+  
+#- name: "Install the downloaded release package"
+#  ansible.builtin.apt:
+#    deb: "{{ mysql_path_deb }}"
+
+#- name: Install a .deb package from the internet
+#  ansible.builtin.apt:
+#    deb: "https://dev.mysql.com/get/mysql-apt-config_{{ mysql_version_install }}_all.deb"
+- name: Install the MySQL packages
+  apt: 
+    name: "{{ item }}" 
+    state: present
+    update_cache: yes
+  with_items:
+    - mysql-server
+    - mysql-client
+    - libmysqlclient-dev
+
+#- name: "Update package information from the MySQL APT repository and Install"
+#  ansible.builtin.apt:
+#    name: mysql-server
+#    update_cache: yes
+
+- name: "Ensure that the server is running"
+  ansible.builtin.systemd:
+    state: started
+    name: mysql
