@@ -1,4 +1,10 @@
 ---
 # tasks file for ansible_role_mysql
-- name: Include task list in play
+- name: Install Mysql
   ansible.builtin.include: install.yml
+
+- name: Create DB
+  ansible.builtin.include: create_db.yml
+
+- name: Create User
+  ansible.builtin.include: create_user.yml

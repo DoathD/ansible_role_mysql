@@ -5,3 +5,6 @@ mysql_version_install: 0.8.25-1
 mysql_md5_ckecksum: md5:66dffb5228a211e61d6d7ef4a86f5758
 mysql_path_install: /tmp
 mysql_path_deb: "{{ mysql_path_install }}/mysql-apt-config_{{ mysql_version_install }}_all.deb"
+
+mysql_db_name:
+mysql_user_name:
