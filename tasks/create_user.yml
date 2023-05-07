@@ -1,0 +1,9 @@
+---
+# 
+- name: Create user with password, all database privileges and 'WITH GRANT OPTION' in db
+  community.mysql.mysql_user:
+    state: present
+    name: "root"
+    password: ""
+    priv:
+      '{{ mysql_db_name }}.*': 'ALL,GRANT'

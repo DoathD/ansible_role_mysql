@@ -3,8 +3,9 @@
 - name: Install Mysql
   ansible.builtin.include: install.yml
 
+- name: Create User
+  ansible.builtin.include: create_user.yml
+
 - name: Create DB
   ansible.builtin.include: create_db.yml
 
-- name: Create User
-  ansible.builtin.include: create_user.yml

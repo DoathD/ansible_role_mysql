@@ -23,6 +23,11 @@
     - mysql-server
     - mysql-client
     - libmysqlclient-dev
+    - pip
+
+- name: Install PyMySQL python package
+  ansible.builtin.pip:
+    name: PyMySQL
 
 #- name: "Update package information from the MySQL APT repository and Install"
 #  ansible.builtin.apt:

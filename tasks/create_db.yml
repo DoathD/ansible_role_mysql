@@ -1,0 +1,8 @@
+---
+# 
+- name: create database
+  community.mysql.mysql_db:
+    name: "{{ mysql_db_name}}"
+    chdir: "{{ mysql_db_dir }}"
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock
